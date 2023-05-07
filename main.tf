@@ -24,7 +24,7 @@ variable "machine_memory" {
 resource "google_compute_instance" "my-vm" {
   name         = "test-my-vm-1"
   machine_type = "custom-${var.machine_memory}"
-  zone         = "asia-southeast2-a"
+  zone         = "asia-southeast1-a"
   
   boot_disk {
     initialize_params {
