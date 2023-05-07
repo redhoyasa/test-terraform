@@ -23,7 +23,7 @@ variable "machine_memory" {
 # Create a new virtual machine
 resource "google_compute_instance" "my-vm" {
   name         = "test-my-vm-1"
-  machine_type = "custom-${var.machine_memory}"
+  machine_type = "e2-small"
   zone         = "asia-southeast1-a"
   
   boot_disk {
