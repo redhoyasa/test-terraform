@@ -11,8 +11,6 @@ terraform {
     bucket         = "test-terraform-1"
     prefix         = "terraform/state"
     credentials    = "key.json"
-    project        = "bangkit-demo-379000"
-    encrypt        = true
   }
 }
 
