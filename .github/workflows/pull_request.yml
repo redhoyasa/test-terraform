@@ -1,9 +1,8 @@
 name: Terraform Deployment
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   deploy:
@@ -19,7 +18,7 @@ jobs:
           terraform_version: 1.4.6
 
       - name: Set Google Cloud service account key
-        run: echo "${{ secrets.SERVICE_ACCOUNT }}" > key.json
+        run: echo '${{ secrets.SERVICE_ACCOUNT }}' > key.json
         # Note: Replace secrets.GOOGLE_CLOUD_KEY_JSON with your actual secret name in GitHub Secrets
 
       - name: Configure Google Cloud credentials
@@ -29,8 +28,8 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
+      - name: Terraform Plan
+        run: terraform plan
 
       - name: Cleanup
         run: rm key.json

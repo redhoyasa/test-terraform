@@ -14,16 +14,10 @@ terraform {
   }
 }
 
-variable "machine_memory" {
-  description = "The memory size (in MB) of the virtual machine"
-  type        = number
-  default     = 2048
-}
-
 # Create a new virtual machine
 resource "google_compute_instance" "my-vm" {
   name         = "test-my-vm-1"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = "asia-southeast1-a"
   
   boot_disk {
