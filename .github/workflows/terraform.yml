@@ -19,7 +19,7 @@ jobs:
           terraform_version: 1.4.6
 
       - name: Set Google Cloud service account key
-        run: echo ${{ secrets.SERVICE_ACCOUNT }} > key.json
+        run: echo '${{ secrets.SERVICE_ACCOUNT }}' > key.json
         # Note: Replace secrets.GOOGLE_CLOUD_KEY_JSON with your actual secret name in GitHub Secrets
 
       - name: Configure Google Cloud credentials
